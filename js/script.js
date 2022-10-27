@@ -72,7 +72,7 @@ const { createApp } = Vue
       autoScroll(){
         this.autoscroll = setInterval(() => {
           this.nextSlide();
-        },20000)
+        },2000)
       },
       stopAutoscroll(){
         clearInterval(this.autoscroll);
