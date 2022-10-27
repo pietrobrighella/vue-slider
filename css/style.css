@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item {
+    float: left;
+    width: 700px;
+    height: 300px;
+    position: relative;
+}
+
+.item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.65)) ;
+    width: 100%;
+    height: 50%;
+    z-index: 0;
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item .text {
+    position: absolute;
+    right: 20px;
+    left: 20px;
+    bottom: 20px;
+    text-align: left;
+    color: white;
+    z-index: 10;
+}
+
+.thumbs {
+    float: left;
+    height: 300px;
+    background: #000;
+    position: relative;
+}
+
+.thumb {
+    height: calc((300px) / 5);
+    opacity: 0.5;
+}
+
+.thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumb.active {
+    border: 2px solid #ccc;
+    opacity: 1;
+}
+
+.prev, .next {
+    width: 40px;
+    height: 40px;
+    margin: -20px 0;
+    border-radius: 50%;
+    background: rgb(255, 255, 255);
+    position: absolute;
+    left: 50%;
+    line-height: 40px;
+    transform: translate(-50%);
+    cursor: pointer;
+    z-index: 999;
+    border: 2px solid black;
+}
+
+.next {
+    bottom: 0;
+}
+
+h3 {
+    padding-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+/*
+EXTRA: in questo esempio gli accordion vengono creati
+usando 2 bordi di un quadratino ruotato di 45 gradi
+In una versione base si possono usare delle icone
+oppure i caratteri ∧ (&and;) e ∨ (&or;)
+ */
+.prev::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    display: block;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%) rotate(-45deg);
+}
+
+.next::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    display: block;
+    position: absolute;
+    bottom: 40%;
+    left: 50%;
+    transform: translate(-50%) rotate(135deg);
+}
